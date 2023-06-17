@@ -24,10 +24,11 @@ document '<
 
   +make-title(|
     title = {
-      |TODO
+      |テキストファイルの末尾には
+      |改行コードを入れよう
       |};
     author = {|nsfisis (いまむら)|};
-    date = {|第TODO回PHP勉強会＠東京|};
+    date = {|第153回PHP勉強会＠東京|};
   |);
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,8 +48,125 @@ document '<
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(vconcat [
+      gap 75pt;
+      textbox?:(set-font-size 24pt){A: そういう定義だから};
+    ]);
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(gap 25pt);
+    +p{
+      POSIX による\emph{「テキストファイル」の定義}:
+    }
+    +p{
+      A file that contains characters organized into zero or more lines. ...
+    }
+    +p{
+      \emph{0個以上の「行」で構成されたファイル}
+    }
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(gap 25pt);
+    +p{
+      POSIX による\emph{「テキストファイル」の定義}:
+    }
+    +p{
+      A file that contains characters organized into zero or more lines. ...
+    }
+    +p{
+      \emph{0個以上の「行」で構成されたファイル}
+    }
+    +fig-center(gap 25pt);
+    +p{
+      POSIX による\emph{「行」の定義}:
+    }
+    +p{
+      A sequence of zero or more non-\<newline\> characters plus a terminating \<newline\> character.
+    }
+    +p{
+      \emph{改行でない文字が0個以上並んだもの + 改行文字}
+    }
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(vconcat [
+      gap 75pt;
+      textbox{POSIX の定義では};
+      gap 10pt;
+      textbox?:(set-font-size 24pt){末尾に改行のないファイルは};
+      gap 10pt;
+      textbox?:(set-font-size 24pt){テキストファイルに非ず};
+    ]);
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(gap 25pt);
+    +p{
+      POSIX の定義に従わないと何が困るのか？
+    }
+    +fig-center(gap 25pt);
+    +p{
+      一部のコマンドの一部の実装が期待どおりに動作しない
+    }
+    +p{
+      例: \code(`wc`);
+    }
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その2}<
+    +fig-center(vconcat [
+      gap 75pt;
+      textbox?:(set-font-size 24pt){A: バージョン管理システムと};
+      gap 10pt;
+      textbox?:(set-font-size 24pt){相性が悪いから};
+    ]);
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その2}<
+    +fig-center(gap 25pt);
+    +p{a[改行]}
+    +p{b[改行]}
+    +p{c}
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その2}<
+    +fig-center(gap 25pt);
+    +p{a[改行]}
+    +p{a[改行]}
+    +p{c}
+    +fig-center(gap 25pt);
+    +p{
+      新しく「d」を追加すると、
+    }
+    +p{a[改行]}
+    +p{b[改行]}
+    +p{c[改行]}
+    +p{d}
+    +fig-center(gap 25pt);
+    +p{
+      変更に無関係な「c」にまで差分が生じる
+    }
+  >
+
+  +frame{なぜ末尾に改行を入れるべきか: その1}<
+    +fig-center(vconcat [
+      gap 75pt;
+      textbox?:(set-font-size 24pt){レビューの負担を軽くするため、};
+      gap 10pt;
+      textbox?:(set-font-size 24pt){無意味な差分は無くすべき};
+    ]);
+  >
+
   +frame{まとめ}<
-    +p{TODO}
+    +fig-center(vconcat [
+      gap 75pt;
+      textbox?:(set-font-size 24pt){テキストファイルの末尾には改行コードを入れよう};
+      gap 30pt;
+      textbox?:(set-font-size 24pt){定義上の理由、実用上の理由から};
+    ]);
   >
 
 >
