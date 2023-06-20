@@ -135,7 +135,7 @@ document '<
   +frame{なぜ末尾に改行を入れるべきか: その2}<
     +fig-center(gap 25pt);
     +p{a[改行]}
-    +p{a[改行]}
+    +p{b[改行]}
     +p{c}
     +fig-center(gap 25pt);
     +p{
