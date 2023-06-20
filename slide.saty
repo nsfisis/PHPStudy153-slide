@@ -114,6 +114,9 @@ document '<
     +p{
       例: \code(`wc`);
     }
+    +p{
+      例: \code(`echo hoge >> ~/.bashrc`);
+    }
   >
 
   +frame{なぜ末尾に改行を入れるべきか: その2}<
